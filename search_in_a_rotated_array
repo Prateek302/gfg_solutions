@@ -1,0 +1,26 @@
+    public:
+    int search(int A[], int l, int h, int key){
+        // l: The starting index
+        // h: The ending index, you have to search the key in this range
+        int mid=l+(h-l)/2;
+        
+        while(l<=h){
+            if(mid+1<sizeof(A) && A[mid+1]<A[mid]){
+                return mid;
+            }
+            if(mid-1<sizeof(A) && A[mid-1]>A[mid]){
+                return mid-1;
+            }
+            if(A[l]>=A[mid]){
+                h=mid-1;
+            }
+            else{
+                l=mid+1;
+            }
+            mid=l+(h-l)/2;
+        }
+        return mid;
+        
+        //complete the function here
+    }
+};
